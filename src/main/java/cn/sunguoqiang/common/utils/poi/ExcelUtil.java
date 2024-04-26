@@ -11,7 +11,6 @@ import cn.sunguoqiang.common.utils.file.FileTypeUtils;
 import cn.sunguoqiang.common.utils.file.ImageUtils;
 import cn.sunguoqiang.common.utils.reflect.ReflectUtils;
 import cn.sunguoqiang.common.utils.text.Convert;
-import com.sun.xml.internal.ws.util.UtilException;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -235,7 +234,7 @@ public class ExcelUtil<T> {
             list = importExcel(is, 0);
         } catch (Exception e) {
             log.error("导入Excel异常{}", e.getMessage());
-            throw new UtilException(e.getMessage());
+            throw new RuntimeException(e.getMessage());
         } finally {
             IOUtils.closeQuietly(is);
         }
